@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  borough: MyString
+  days_open: MyString
+
+two:
+  name: MyString
+  address: MyString
+  borough: MyString
+  days_open: MyString
