@@ -1,8 +1,30 @@
-<h1>Listing markets</h1>
+<h1>NYC Green Markets</h1>
 
-<%= gmaps4rails(@markers) %>
+<%#= gmaps4rails(@markers) %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Borough</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+  </tr>
+  <% for market in @markets %>
+    <tr>
+      <td><%= market.name %></td>
+      <td><%= market.address %></td>
+      <td><%= market.borough %></td>
+      <td><%= market.latitude %></td>
+      <td><%= market.longitude %></td>
+      <td><%= link_to "Show", market %></td>
+      <td><%= link_to "Edit", edit_market_path(market) %></td>
+      
+    </tr>
+  <% end %>
+</table>
 
 
-<%= yield :scripts %>
+<%#= yield :scripts %>
 
 <%= link_to 'New Market', new_market_path %>

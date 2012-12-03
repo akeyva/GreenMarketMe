@@ -16,10 +16,13 @@ ActiveRecord::Schema.define(:version => 20121129182337) do
   create_table "markets", :force => true do |t|
     t.string   "name"
     t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "borough"
     t.string   "days_open"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "gmaps"
   end
 
 end
