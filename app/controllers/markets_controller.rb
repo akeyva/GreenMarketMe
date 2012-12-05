@@ -3,9 +3,9 @@ class MarketsController < ApplicationController
   # GET /markets.json
   def index
     @markets = Market.all
-    # @markets = @markets.to_gmaps4rails do |pool|
-    #   "\"title\": \"#{market.name}\"" 
-    # end 
+    @markers = @markets.to_gmaps4rails do |market|
+       "\"title\": \"#{market.name}\"" 
+     end 
 
     respond_to do |format|
       format.html # index.html.erb
