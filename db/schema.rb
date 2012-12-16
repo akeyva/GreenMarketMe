@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129182337) do
+ActiveRecord::Schema.define(:version => 20121210213310) do
 
   create_table "markets", :force => true do |t|
     t.string   "name"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(:version => 20121129182337) do
     t.boolean  "accepts_health_bucks"
     t.boolean  "accepts_EBT"
     t.boolean  "stellar"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.boolean  "gmaps"
   end
+
+
 
 end

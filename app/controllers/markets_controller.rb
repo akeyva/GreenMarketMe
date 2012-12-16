@@ -6,7 +6,7 @@ class MarketsController < ApplicationController
   def index
 
     @markets = Market.search(params[:search]).uniq{|market| market.name}.order(sort_column + " " + sort_direction)
-
+    @boroughs = ["Manhattan", "Queens", "Bronx", "Brooklyn", "Staten Island"]
     @markers = @markets.to_gmaps4rails do |market|
        "\"title\": \"#{market.name}\"" 
      end 

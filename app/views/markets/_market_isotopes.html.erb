@@ -1,0 +1,30 @@
+
+<ul id ="filters">
+      <li> <a href="#" data-filter="*">Show All</a></li>
+    <% @boroughs.each do |borough| %>
+      <li><a href="#" data-filter=".<%= borough.gsub(/\s+/, "") %>"><%=borough %></a></li>
+    <% end %>
+</ul>
+
+<div id="container">
+
+<% @markets.each do |market| %>
+  <div class="element <%=market.borough.gsub(/\s+/, "") %>">
+    <%= market.name %>
+
+    <%= market.borough %>
+
+    <%= market.days_open %>
+
+    <%= market.hours %>
+
+    <%= market.address %>
+
+    <%= 'EBT' if market.accepts_EBT %>
+
+    <%= 'Stellar' if market.stellar %>
+  </div>
+
+<% end %>
+
+</div>

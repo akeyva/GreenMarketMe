@@ -8,6 +8,22 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require jquery.isotope
  *= require_self
  *= require_tree .
  */
+
+
+.element {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  background: #A2EF00;
+  color: #222;
+  -webkit-border-top-right-radius: 0;
+      -moz-border-radius-topright: 0;
+          border-top-right-radius: 0;
+}

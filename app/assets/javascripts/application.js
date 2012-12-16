@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.isotope
 //= require_tree .
+
+$(function(){
+var $container = $('#container');
+// initialize isotope
+$container.isotope({
+  itemSelector : '.element'
+});
+
+// filter items when filter link is clicked
+$('#filters a').click(function(){
+  var selector = $(this).attr('data-filter');
+  $container.isotope({ filter: selector });
+  return false;
+});
+ });
