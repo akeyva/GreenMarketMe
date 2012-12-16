@@ -2,11 +2,21 @@
 
 <%= gmaps4rails(@markers) %>
 
+<%= form_tag markets_path, :method => 'get', :id => "products_search" do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="markets"><%#= render 'markets' %></div>
+<% end %>
+
 <table>
   <tr>
-    <th>Name</th>
+    <th><%= sortable "Name"%></th>
     <th>Address</th>
-    <th>Borough</th>
+    <th><%= sortable "Borough"%></th>
     <th>Latitude</th>
     <th>Longitude</th>
   </tr>
@@ -26,5 +36,7 @@
 
 
 <%= yield :scripts %>
+
+<%#= will_paginate @markets %>
 
 <%= link_to 'New Market', new_market_path %>

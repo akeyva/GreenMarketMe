@@ -15,6 +15,11 @@ markets_json["data"].each do |market|
     :borough => market[8],
     :address => market[10],
     :days_open => market[11],
+    :hours => market[12],
+    :distribute_health_bucks => market[13],
+    :accepts_health_bucks => market[14],
+    :accepts_EBT => market[15],
+    :stellar => market[16],
     :gmaps => true
   )
 

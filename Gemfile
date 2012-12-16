@@ -15,6 +15,8 @@ gem 'gmaps4rails'
 gem 'json'
 gem 'geocoder'
 gem 'turkee'
+gem 'will_paginate' 
+
 
 # Gems used only for assets and not required
 # in production environments by default.

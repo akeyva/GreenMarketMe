@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(:version => 20121129182337) do
     t.float    "longitude"
     t.string   "borough"
     t.string   "days_open"
+    t.string   "hours"
+    t.boolean  "distribute_health_bucks"
+    t.boolean  "accepts_health_bucks"
+    t.boolean  "accepts_EBT"
+    t.boolean  "stellar"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "gmaps"

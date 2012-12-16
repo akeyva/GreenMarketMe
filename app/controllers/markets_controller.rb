@@ -1,8 +1,12 @@
 class MarketsController < ApplicationController
   # GET /markets
   # GET /markets.json
+  helper_method :sort_column, :sort_direction
+
   def index
-    @markets = Market.all
+
+    @markets = Market.search(params[:search]).uniq{|market| market.name}.order(sort_column + " " + sort_direction)
+
     @markers = @markets.to_gmaps4rails do |market|
        "\"title\": \"#{market.name}\"" 
      end 
@@ -83,4 +87,16 @@ class MarketsController < ApplicationController
       format.json { head :no_content }
     end
   end
+ 
+  private
+  
+  def sort_column
+    Market.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+
 end
