@@ -16,16 +16,38 @@
 //= require_tree .
 
 $(function(){
-var $container = $('#container');
-// initialize isotope
-$container.isotope({
-  itemSelector : '.element'
-});
+  var $container = $('#container');
+  // initialize isotope
+  $container.isotope({
+    itemSelector : '.element'
+  });
 
-// filter items when filter link is clicked
-$('#filters a').click(function(){
-  var selector = $(this).attr('data-filter');
-  $container.isotope({ filter: selector });
-  return false;
+  // filter items when filter link is clicked
+  $('#filters a').click(function(){
+    var selector = $(this).attr('data-filter');
+    $container.isotope({ filter: selector });
+    return false;
+  });
+
+  var $optionSets = $('#options .option-set'),
+      $optionLinks = $optionSets.find('a');
+
+  $optionLinks.click(function(){
+    var $this = $(this);
+    // don't proceed if already selected
+    if ( $this.hasClass('selected') ) {
+      return false;
+    }
+    var $optionSet = $this.parents('.option-set');
+    $optionSet.find('.selected').removeClass('selected');
+    $this.addClass('selected');
+
+
+  });
+
+  $container.delegate( '.element', 'click', function(){
+    $(this).toggleClass('large');
+    $container.isotope('reLayout');
+  });
+
 });
- });

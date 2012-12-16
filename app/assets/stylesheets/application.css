@@ -15,8 +15,8 @@
 
 
 .element {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   margin: 10px;
   float: left;
   overflow: hidden;
@@ -26,4 +26,18 @@
   -webkit-border-top-right-radius: 0;
       -moz-border-radius-topright: 0;
           border-top-right-radius: 0;
+}
+
+.element.large .symbol {
+  font-size: 2em;
+}
+
+.element.large,
+.variable-sizes .element.large,
+.variable-sizes .element.large.width2.height2 {
+  font-size: 1em;
+  width: 488px;
+  height: 488px;
+  margin: 10;
+  z-index: 100;
 }

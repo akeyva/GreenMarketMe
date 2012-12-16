@@ -1,30 +1,40 @@
-
-<ul id ="filters">
-      <li> <a href="#" data-filter="*">Show All</a></li>
-    <% @boroughs.each do |borough| %>
-      <li><a href="#" data-filter=".<%= borough.gsub(/\s+/, "") %>"><%=borough %></a></li>
-    <% end %>
-</ul>
+<h1>NYC Green Markets</h1>
+<div id ="options" class="clearfix">
+  <ul id ="filters" class="option-set clearfix" >
+        <li> <a href="#" data-filter="*" class="selected">Show All</a></li>
+      <% @boroughs.each do |borough| %>
+        <li><a href="#" data-filter=".<%= borough.gsub(/\s+/, "") %>"><%=borough %></a></li>
+      <% end %>
+     
+  </ul>
+   <ul id ="filters" class="option-set clearfix" >
+        <li> <a href="#" data-filter="*" class="selected">Show All</a></li>
+      <% @days.each do |day| %>
+        <li><a href="#" data-filter=".<%= day %>"><%= day %></a></li>
+      <% end %>
+     
+  </ul>
+</div> 
 
 <div id="container">
 
-<% @markets.each do |market| %>
-  <div class="element <%=market.borough.gsub(/\s+/, "") %>">
-    <%= market.name %>
+  <% @markets.each do |market| %>
+    <div class="element <%=market.borough.gsub(/\s+/, "") %> <%=market.days_open %> ">
+      <%= market.name %>
 
-    <%= market.borough %>
+      <%= market.borough %>
 
-    <%= market.days_open %>
+     <%= market.days_open %>
 
-    <%= market.hours %>
+      <%= market.hours %>
 
-    <%= market.address %>
+      <%= market.address %>
 
-    <%= 'EBT' if market.accepts_EBT %>
+      <%= 'EBT' if market.accepts_EBT %>
 
-    <%= 'Stellar' if market.stellar %>
-  </div>
+      <%= 'Stellar' if market.stellar %>
+    </div>
 
-<% end %>
+  <% end %>
 
 </div>
